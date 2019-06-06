@@ -14,7 +14,7 @@ namespace Archivos
         public enum EstadoCivil { Solterx, Casadx, Viudx, Complicado }
         public enum Género { Masculino, Femenino }
         ////Datos de los empleados
-        private string nombre;
+        public string nombre;
         private string apellido;
         private DateTime fechaNac;
         private EstadoCivil estadoCivil;
@@ -119,10 +119,17 @@ namespace Archivos
             return sal;
         }
         ////Archivo
-        public void Archivo(string path)
+        public void CargarArchivo(List<Empleado> lista, StreamWriter writer)
         {
-            File.Open(path,FileMode.Open);
-
+            foreach (Empleado empleado in lista)
+            {
+                writer.Write($"{empleado.nombre};");
+                writer.Write($"{empleado.apellido};");
+                writer.Write($"{empleado.género};");
+                writer.Write($"{empleado.fechaNac};");
+                writer.Write($"{empleado.CalculoSalario()};\n");
+            }
+            writer.Close();
         }
     }
 }

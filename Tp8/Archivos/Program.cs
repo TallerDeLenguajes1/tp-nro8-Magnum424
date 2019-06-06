@@ -11,8 +11,6 @@ namespace Archivos
     {
         static void Main(string[] args)
         {
-            ////Creo un archivo .csv
-            string path = @"DatosEmpleados.csv";
             ////Declaro la variable de nuevo empleado
             Empleado NuevoEmpleado;
 
@@ -94,6 +92,19 @@ namespace Archivos
             Console.Write("\n");
             Console.WriteLine("La empresa gasta ${0} en salarios.", total);
             Console.ReadKey();
+
+            ////Creo un archivo .csv
+            string path = @"DatosEmpleados.csv";
+            StreamWriter writer = new StreamWriter(path);
+            ////Escribo en el archivo los campos a llenar
+            writer.Write("Nombre;");
+            writer.Write("Apellido;");
+            writer.Write("Género;");
+            writer.Write("Fecha de nacimiento;");
+            writer.Write("Salario;");
+            ////Escribo en el archivo los datos de los empleados
+           
+
         }
     }
 }
